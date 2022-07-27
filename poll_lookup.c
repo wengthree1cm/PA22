@@ -154,7 +154,7 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
 
 
   int maxtemp=0; int mintemp=0; int maxpm=0; int minpm=0;
-  int avpm=0; int avtemp=0; int count=0; int count2=1;
+  int avpm=0; int avtemp=0; int count=0; int count2=0;
 
   char *token = strtok(datestr, "-");
   int cols[COL_DAY+1];
