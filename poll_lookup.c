@@ -110,14 +110,11 @@ unsigned long hash(char *str) {
  */
 node *add_node(node *front, int year, int month, int day, int hour, int pm25,
     int temp) {
-  struct node* node1;
-  
-  
-  struct node* storefront=front;
-  node1 =(node*)malloc(sizeof(node));
+  node * node1 =(node*)malloc(sizeof(node));
   if(node1==NULL){
     return NULL;
   }
+  node *temp=front;
   node1->year=year;
   node1->day=day;
   node1->month=month;
@@ -125,20 +122,19 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
   node1->pm25=pm25;
   node1->temp=temp;
   node1->next=NULL;
-  if(front==NULL){
-    front=node1;
+  if(temp==NULL){
+    temp=node1;
+    return temp;
     
     
   }
   else{
-    do{
-        front=front->next;
-    }while(front!=NULL);
-    front=node1;
-  }
-  
-  
-  return storefront;
+    while(temp!=NULL){
+      temp=temp->next;
+    
+    }
+    temp->next=node1;
+    return front;
 }
 
 /*
