@@ -146,6 +146,7 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
  *form YYYY-MM-DD
  */
 void print_date_stats(node **table, unsigned long size, char *datestr) {
+  printf("aaaaaaaaaaaaaaaaa");
   unsigned long index=hash(datestr)%size;
   node *chain = table[index];
   node *temp=  NULL;
