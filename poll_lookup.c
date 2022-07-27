@@ -262,7 +262,7 @@ void print_info(node **table, unsigned long size) {
 
   for(int i=0;i<(int)size;i++){
     unsigned long count=0;
-    node *chain=table;
+    node *chain=table[0];
     
     if(chain==NULL){
         empty++;
@@ -270,7 +270,7 @@ void print_info(node **table, unsigned long size) {
     else{
         while(chain!=NULL){
             count++;
-            chain++;
+            chain=chain->next;
         }
     }
     entries=entries+count;
