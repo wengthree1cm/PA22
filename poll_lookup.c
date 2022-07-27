@@ -135,6 +135,7 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
     }
     temp->next=node1;
     return front;
+    }
 }
 
 /*
