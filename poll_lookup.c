@@ -149,7 +149,7 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
   printf("aaaaaaaaaaaaaaaaa");
   unsigned long index=hash(datestr)%size;
   node *chain = table[index];
-  node *temp=  NULL;
+  node *tmp=  NULL;
 
 
   int maxtemp=0; int mintemp=0; int maxpm=0; int minpm=0;
@@ -158,6 +158,7 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
   char *token = strtok(datestr, split);
   int cols[COL_DAY+1];
   int c = 0;
+  printf("bbbbbbb");
   while (token != NULL) {
     cols[c] = atoi(token);
     token = strtok(NULL, split);
@@ -165,9 +166,10 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
   }
 
    while (chain != NULL) {
+     
         count++;
 
-    temp=chain->next;
+    tmp=chain->next;
     if (chain->year == cols[COL_YEAR] && chain->month == cols[COL_MONTH]
         && chain->day == cols[COL_DAY]) {
       count2++;
@@ -186,7 +188,7 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
       avpm=avpm+chain->pm25;
       avtemp=avtemp+chain->temp;
 
-      chain=temp;
+      chain=tmp;
 
   }
   // TODO: Implement print_data_stats
@@ -235,9 +237,7 @@ int load_table(node **table, unsigned long size, char *filename) {
             count++;
         }
         
-        for(int i=0;i<6;i++){
-            printf("%d ",buf[i]);
-        }
+        
         printf("\n");
         
         char buf1[12];
