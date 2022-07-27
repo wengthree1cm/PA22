@@ -114,7 +114,7 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
   if(node1==NULL){
     return NULL;
   }
-  node *temp=front;
+  node *tmp=front;
   node1->year=year;
   node1->day=day;
   node1->month=month;
@@ -122,18 +122,18 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
   node1->pm25=pm25;
   node1->temp=temp;
   node1->next=NULL;
-  if(temp==NULL){
-    temp=node1;
-    return temp;
+  if(tmp==NULL){
+    tmp=node1;
+    return tmp;
     
     
   }
   else{
-    while(temp!=NULL){
-      temp=temp->next;
+    while(tmp!=NULL){
+      tmp=tmp->next;
     
     }
-    temp->next=node1;
+    tmp->next=node1;
     return front;
     }
 }
