@@ -236,7 +236,6 @@ int load_table(node **table, unsigned long size, char *filename) {
         char buf1[12];
         snprintf(buf1,11,"%d-%d-%d",buf[0],buf[1],buf[2]);
         unsigned long value=hash(buf1)%size;
-        printf("%ld\n",value);
         node *chain = table[value];
         node* head = chain;
         /*
