@@ -152,7 +152,7 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
 
 
   int maxtemp=0; int mintemp=0; int maxpm=0; int minpm=0;
-  int avpm=0; int avtemp=0; int count=0;
+  int avpm=0; int avtemp=0; int count=0; int count2=0;
   const char split[] = "-";
   char *token = strtok(datestr, split);
   int cols[COL_DAY+1];
@@ -169,6 +169,7 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
     temp=chain->next;
     if (chain->year == cols[COL_YEAR] && chain->month == cols[COL_MONTH]
         && chain->day == cols[COL_DAY]) {
+      count2++;
       if(chain->pm25>maxpm){
         maxpm=chain->pm25;
       }
@@ -189,7 +190,10 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
   }
   // TODO: Implement print_data_stats
   // Use the following formatting strings to print messages.
-  printf("Unable to find any data for the date %s.\n", datestr);
+  if(count2==0){
+    
+    printf("Unable to find any data for the date %s.\n", datestr);
+  }
   printf("Minimum pm2.5: %d\tMaximum pm2.5: %d\tAverage pm2.5: %d\n",
          minpm, maxpm, avpm/count);
   printf("Minimum temp: %d\tMaximum temp: %d\tAverage temp: %d\n",
