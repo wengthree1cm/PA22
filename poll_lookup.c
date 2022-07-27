@@ -132,6 +132,7 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
     }while(front!=NULL);
     front=node1;
   }
+  printf("%d",pm25);
   
   return storefront;
 
@@ -245,9 +246,9 @@ int load_table(node **table, unsigned long size, char *filename) {
         */
         
         add_node(head,buf[0],buf[1],buf[2],buf[3],buf[4],buf[5]);
-      count1++;
+      
     }
-  printf("%d",count1);
+  
   return 0;
 }
 
