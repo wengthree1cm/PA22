@@ -222,7 +222,7 @@ int load_table(node **table, unsigned long size, char *filename) {
         perror("load_table malloc");
     }
     while(fgets(abc,LINE_SIZE-1,file1)!=NULL){
-      printf("%s\n",abc);
+      
         char *store=strtok(abc,",");
         int count=0;
         while(store!=NULL){
@@ -233,12 +233,12 @@ int load_table(node **table, unsigned long size, char *filename) {
             store=strtok(NULL,",");
             count++;
         }
-        /*
+        
         for(int i=0;i<6;i++){
-            printf("%d",buf[i]);
+            printf("%d-",buf[i]);
         }
         printf("\n");
-        */
+        
         char buf1[12];
         snprintf(buf1,11,"%d-%d-%d",buf[0],buf[1],buf[2]);
         unsigned long value=hash(buf1)%size;
