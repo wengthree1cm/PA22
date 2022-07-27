@@ -268,7 +268,7 @@ void print_info(node **table, unsigned long size) {
         empty++;
     }
     else{
-        while(head=NULL){
+        while(head!=NULL){
             count++;
             head=head->next;
         }
