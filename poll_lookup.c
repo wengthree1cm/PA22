@@ -111,6 +111,7 @@ unsigned long hash(char *str) {
 node *add_node(node *front, int year, int month, int day, int hour, int pm25,
     int temp) {
   struct node* node1;
+  struct node*  tmp;
   struct node* storefront=front;
   node1 =(node*)malloc(sizeof(node));
   if(node1==NULL){
@@ -124,18 +125,20 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
   node1->temp=temp;
   node1->next=NULL;
   if(front==NULL){
-    front=node1;
+    temp->next=front;
+    temp->next=node1;
+    
   }
   else{
     do{
+        tmp=front
         front=front->next;
     }while(front!=NULL);
-    front=node1;
+    tmp->next=node1;
   }
-  printf("%d",pm25);
+  
   
   return storefront;
-
 }
 
 /*
