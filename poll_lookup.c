@@ -132,7 +132,7 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
     }while(front!=NULL);
     front=node1;
   }
-  printf("%d",year);
+  
   return storefront;
 
 }
