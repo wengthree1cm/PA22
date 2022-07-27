@@ -205,7 +205,6 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
  */
 int load_table(node **table, unsigned long size, char *filename) {
   FILE * file1=fopen(filename,"r");
-    int count1=0;
     if(file1==NULL){
         perror("load_table filename open");
         return 1;
