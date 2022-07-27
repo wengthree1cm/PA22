@@ -146,7 +146,7 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
  *form YYYY-MM-DD
  */
 void print_date_stats(node **table, unsigned long size, char *datestr) {
-  printf("aaaaaaaaaaaaaaaaa");
+  
   unsigned long index=hash(datestr)%size;
   node *chain = table[index];
   node *tmp=  NULL;
@@ -158,8 +158,9 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
   char *token = strtok(datestr, split);
   int cols[COL_DAY+1];
   int c = 0;
-  printf("bbbbbbb");
+  
   while (token != NULL) {
+    printf("aaaaaaaaaaaaa\n");
     cols[c] = atoi(token);
     token = strtok(NULL, split);
     c++;
@@ -167,7 +168,7 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
 
    while (chain != NULL) {
      
-        count++;
+    count++;
 
     tmp=chain->next;
     if (chain->year == cols[COL_YEAR] && chain->month == cols[COL_MONTH]
@@ -197,7 +198,7 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
     
     printf("Unable to find any data for the date %s.\n", datestr);
   }
-     printf("aaaaaaaaaaaaaaaaaaaaaa");
+     
   printf("Minimum pm2.5: %d\tMaximum pm2.5: %d\tAverage pm2.5: %d\n",
          minpm, maxpm, avpm/count);
   printf("Minimum temp: %d\tMaximum temp: %d\tAverage temp: %d\n",
