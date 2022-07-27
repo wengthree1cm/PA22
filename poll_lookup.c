@@ -222,6 +222,7 @@ int load_table(node **table, unsigned long size, char *filename) {
         perror("load_table malloc");
     }
     while(fgets(abc,LINE_SIZE-1,file1)!=NULL){
+      printf("%s\n",abc);
         char *store=strtok(abc,",");
         int count=0;
         while(store!=NULL){
