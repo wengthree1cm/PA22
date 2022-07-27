@@ -194,6 +194,7 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
     
     printf("Unable to find any data for the date %s.\n", datestr);
   }
+     printf("aaaaaaaaaaaaaaaaaaaaaa");
   printf("Minimum pm2.5: %d\tMaximum pm2.5: %d\tAverage pm2.5: %d\n",
          minpm, maxpm, avpm/count);
   printf("Minimum temp: %d\tMaximum temp: %d\tAverage temp: %d\n",
