@@ -262,7 +262,7 @@ void print_info(node **table, unsigned long size) {
 
   for(int i=0;i<(int)size;i++){
     unsigned long count=0;
-    node *chain=table[0];
+    node *chain=&table;
     
     if(chain==NULL){
         empty++;
