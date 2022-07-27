@@ -11,17 +11,17 @@
 
     .global node_lookup               //make node_lookup global for linking to
     .type   node_lookup, %function    //define node_lookup to be a function
-    .equ 	FP_OFF, 24 	  // fp offset distance from sp 
+    .equ 	FP_OFF, 60 	  // fp offset distance from sp 
 node_lookup:	
 // function prologue
 
-push {r4-r8,fp,lr}
+push {r0-r8,fp,lr}
 add   fp, sp, FP_OFF
 
 ldr r4, [r0]  //year
-ldr r5, [r0,4] //month
-ldr r6, [r0,8] //day
-ldr r7, [r0,12] //hour from struct 
+ldr r5, [r0,#4] //month
+ldr r6, [r0,#8] //day
+ldr r7, [r0,#12] //hour from struct 
 ldr r8, [fp,#4] //hour in variable
    
     cmp r0,0
@@ -53,7 +53,7 @@ ldr r8, [fp,#4] //hour in variable
 .Lfin: 
 
     sub  sp, fp, FP_OFF   // restore sp
-    pop  {r4-r8,fp, lr}      // restore saved registers
+    pop  {r0-r8,fp, lr}      // restore saved registers
     bx   lr
 
 // function footer - do not edit below
