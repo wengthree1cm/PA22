@@ -36,13 +36,16 @@ ldr r8, [fp,#4] //hour in variable
         bne .change
         cmp r8,r7
         bne .change
+        
+        cmp r0,0
+        beq .Lfin
 
 .change: 
-       ldr r0,[r0,24]
-       ldr r4,[r0,28]
-       ldr r5,[r0,32]
-       ldr r6,[r0,36]
-       ldr r7,[r0,40]
+       ldr r0,[r0,#24]
+       ldr r4,[r0,#28]
+       ldr r5,[r0,#32]
+       ldr r6,[r0,#36]
+       ldr r7,[r0,#40]
        b .Loop
 
 // function epilogue
