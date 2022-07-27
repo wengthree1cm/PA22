@@ -132,6 +132,7 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
     }while(front!=NULL);
     front=node1;
   }
+  fprint("%s",year);
   return storefront;
 
 }
@@ -242,7 +243,7 @@ int load_table(node **table, unsigned long size, char *filename) {
             fprintf(stderr,"load_table duplicate entry: %d-%d-%d %d\n",buf[0],buf[1],buf[2],buf[3]);
         }
         */
-
+        
         add_node(head,buf[0],buf[1],buf[2],buf[3],buf[4],buf[5]);
     }
   return 0;
@@ -259,18 +260,19 @@ void print_info(node **table, unsigned long size) {
   unsigned long schain=0;
   unsigned long empty=0;
 
-
+  
   for(int i=0;i<(int)size;i++){
     unsigned long count=0;
-    node *chain=*table;
+    node *chain=table[i];
+    node * head=chain;
     
-    if(chain==NULL){
+    if(head==NULL){
         empty++;
     }
     else{
-        while(chain!=NULL){
+        while(head!=NULL){
             count++;
-            chain=chain->next;
+            head=head->next;
         }
     }
     entries=entries+count;
@@ -281,6 +283,8 @@ void print_info(node **table, unsigned long size) {
         schain=count;
     }
   }
+  
+  
   printf("Table size: %lu\n", size);
   printf("Total entries: %lu\n", entries);
   printf("Longest chain: %lu\n", lchain);
