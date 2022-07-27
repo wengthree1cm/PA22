@@ -235,7 +235,7 @@ int load_table(node **table, unsigned long size, char *filename) {
         }
         
         for(int i=0;i<6;i++){
-            printf("%d-",buf[i]);
+            printf("%d ",buf[i]);
         }
         printf("\n");
         
