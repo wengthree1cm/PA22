@@ -112,6 +112,7 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
     int temp) {
   struct node* node1;
   struct node*  tmp;
+  tmp =(node*)malloc(sizeof(node));
   tmp->year=1;
   tmp->day=1;
   tmp->month=2;
@@ -119,7 +120,7 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
   tmp->next=NULL;
   tmp->pm25=1;
   tmp->temp=1;
-  tmp =(node*)malloc(sizeof(node));
+  
   struct node* storefront=front;
   node1 =(node*)malloc(sizeof(node));
   if(node1==NULL){
