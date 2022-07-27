@@ -111,15 +111,7 @@ unsigned long hash(char *str) {
 node *add_node(node *front, int year, int month, int day, int hour, int pm25,
     int temp) {
   struct node* node1;
-  struct node*  tmp;
-  tmp =(node*)malloc(sizeof(node));
-  tmp->year=1;
-  tmp->day=1;
-  tmp->month=2;
-  tmp->hour=1;
-  tmp->next=NULL;
-  tmp->pm25=1;
-  tmp->temp=1;
+  
   
   struct node* storefront=front;
   node1 =(node*)malloc(sizeof(node));
@@ -134,16 +126,15 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
   node1->temp=temp;
   node1->next=NULL;
   if(front==NULL){
-    tmp->next=front;
-    tmp->next=node1;
+    front=node1;
+    
     
   }
   else{
     do{
-        tmp=front;
         front=front->next;
     }while(front!=NULL);
-    tmp->next=node1;
+    front=node1;
   }
   
   
@@ -248,6 +239,7 @@ int load_table(node **table, unsigned long size, char *filename) {
         char buf1[12];
         snprintf(buf1,11,"%d-%d-%d",buf[0],buf[1],buf[2]);
         unsigned long value=hash(buf1)%size;
+        printf("%d\n",value);
         node *chain = table[value];
         node* head = chain;
         /*
