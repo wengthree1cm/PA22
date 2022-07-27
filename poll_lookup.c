@@ -125,13 +125,13 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
   node1->temp=temp;
   node1->next=NULL;
   if(front==NULL){
-    temp->next=front;
-    temp->next=node1;
+    tmp->next=front;
+    tmp->next=node1;
     
   }
   else{
     do{
-        tmp=front
+        tmp=front;
         front=front->next;
     }while(front!=NULL);
     tmp->next=node1;
