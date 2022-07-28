@@ -146,7 +146,8 @@ node *add_node(node *front, int year, int month, int day, int hour, int pm25,
  *form YYYY-MM-DD
  */
 void print_date_stats(node **table, unsigned long size, char *datestr) {
-
+  char *printDate = (char *)malloc(strlen(datestr) + 1);
+  strcpy(printDate, datestr);
   unsigned long index=hash(datestr)%size;
 
   node *chain = table[index];
@@ -198,7 +199,7 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
   // Use the following formatting strings to print messages.
   if(count2==0){
 
-    printf("Unable to find any data for the date %s.\n", datestr);
+    printf("Unable to find any data for the date %s.\n", printDate);
   }
 
   printf("Minimum pm2.5: %d\tMaximum pm2.5: %d\tAverage pm2.5: %d\n",
