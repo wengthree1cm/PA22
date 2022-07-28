@@ -258,15 +258,15 @@ int load_table(node **table, unsigned long size, char *filename) {
 
         unsigned long value=hash(buf1)%size;
 
-        node *chain = table[value];
+        //node *chain = table[value];
         node* head;
         
-        if(node_lookup(chain,buf[0],buf[1],buf[2],buf[3])!=NULL){
+        if(node_lookup(table[value],buf[0],buf[1],buf[2],buf[3])!=NULL){
             fprintf(stderr,"load_table duplicate entry: %d-%d-%d %d\n",buf[0],buf[1],buf[2],buf[3]);
         }
       
         else{
-          head = add_node(head,buf[0],buf[1],buf[2],buf[3],buf[4],buf[5]);
+          head = add_node(table[value],buf[0],buf[1],buf[2],buf[3],buf[4],buf[5]);
           if(head == NULL){
            //aafsa
           }
