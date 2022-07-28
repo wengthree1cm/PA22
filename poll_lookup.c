@@ -201,7 +201,7 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
 
     }
     }
-    printf("count=%d",count);
+   
   // TODO: Implement print_data_stats
   // Use the following formatting strings to print messages.
   if(count2==0){
@@ -210,9 +210,9 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
   }
 
   printf("Minimum pm2.5: %d\tMaximum pm2.5: %d\tAverage pm2.5: %d\n",
-         minpm, maxpm, avpm/count);
+         minpm, maxpm, avpm);
   printf("Minimum temp: %d\tMaximum temp: %d\tAverage temp: %d\n",
-         mintemp, maxtemp, avtemp/count);
+         mintemp, maxtemp, avtemp);
 }
 
 
