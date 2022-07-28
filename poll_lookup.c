@@ -235,17 +235,14 @@ int load_table(node **table, unsigned long size, char *filename) {
         char *store=strtok(abc,",");
         int count=0;
         while(store!=NULL){
-           
+           if(strcmp(store, "NA") == 0){
+                store = "0";
+           }
             buf[count]=atoi(store);
             store=strtok(NULL,",");
             count++;
         }
         
-       for(unsigned int i = 0; i < 6; i++){
-            if(strcmp(buf[i], "NA") == 0){
-                buf[i] = 0;
-            }
-       }
 
 
        
