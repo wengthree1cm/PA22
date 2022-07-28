@@ -223,7 +223,7 @@ int load_table(node **table, unsigned long size, char *filename) {
         return 1;
     }
 
-    int buf[6];
+    unsigned int buf[6];
     char *abc=malloc(sizeof(char)*LINE_SIZE);
     fgets(abc,LINE_SIZE-1,file1);
     if(abc==NULL){
@@ -241,7 +241,7 @@ int load_table(node **table, unsigned long size, char *filename) {
             count++;
         }
         
-       for(int i = 0; i < sizeof(buf); i++){
+       for(unsigned int i = 0; i < 6; i++){
             if(strcmp(buf[i], "NA") == 0){
                 buf[i] = 0;
             }
