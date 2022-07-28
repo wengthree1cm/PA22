@@ -25,7 +25,7 @@ DEFINE =
 # select the assembler, specify how to generate a .o from a .s and flags
 AS	= gcc
 ASLIST	= -Wa,-adhln
-ASFLAGS = -I.
+ASFLAGS = -I. -ggdb
 
 %.o : %.s
 	$(AS) -c $(ASFLAGS) $< -o $@
