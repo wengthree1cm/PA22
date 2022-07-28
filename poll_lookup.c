@@ -170,6 +170,7 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
    while (chain != NULL) {
 
     count++;
+    printf("%d", count);
 
     tmp=chain->next;
     if (chain->year == cols[COL_YEAR] && chain->month == cols[COL_MONTH]
