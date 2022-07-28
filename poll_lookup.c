@@ -267,6 +267,7 @@ int load_table(node **table, unsigned long size, char *filename) {
       
         else{
           head = add_node(table[value],buf[0],buf[1],buf[2],buf[3],buf[4],buf[5]);
+          printf("sssssssssss\n");
           if(head == NULL){
            //aafsa
           }
