@@ -154,8 +154,14 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
   node *tmp=  NULL;
 
 
-  int maxtemp=0; int mintemp=0; int maxpm=0; int minpm=0;
-  int avpm=0; int avtemp=0; int count=0; int count2=0;
+  int maxtemp=0; 
+  int mintemp=0; 
+  int maxpm=0; 
+  int minpm=0;
+  int avpm=0;
+  int avtemp=0; 
+  int count=0; 
+  int count2=0;
 
   char *token = strtok(datestr, "-");
   int cols[COL_DAY+1];
@@ -170,7 +176,7 @@ void print_date_stats(node **table, unsigned long size, char *datestr) {
    while (chain != NULL) {
 
     count++;
-    printf("%d", count);
+    
 
     tmp=chain->next;
     if (chain->year == cols[COL_YEAR] && chain->month == cols[COL_MONTH]
@@ -230,7 +236,7 @@ int load_table(node **table, unsigned long size, char *filename) {
         perror("load_table malloc");
     }
     while(fgets(abc,LINE_SIZE-1,file1)!=NULL){
-      printf("%s\n", abc);
+      
     
         char *store=strtok(abc,",");
         int count=0;
