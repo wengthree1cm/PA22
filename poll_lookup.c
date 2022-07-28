@@ -235,16 +235,20 @@ int load_table(node **table, unsigned long size, char *filename) {
         char *store=strtok(abc,",");
         int count=0;
         while(store!=NULL){
-            if(strcmp(store,"NA")==0){
-                store="0";
-            }
+           
             buf[count]=atoi(store);
             store=strtok(NULL,",");
             count++;
         }
+        
+       for(int i = 0; i < sizeof(buf); i++){
+            if(strcmp(buf[i], "NA") == 0){
+                buf[i] = 0;
+            }
+       }
 
 
-        printf("\n");
+       
 
         char buf1[12];
         snprintf(buf1,11,"%d-%d-%d",buf[0],buf[1],buf[2]);
@@ -252,15 +256,22 @@ int load_table(node **table, unsigned long size, char *filename) {
         unsigned long value=hash(buf1)%size;
 
         node *chain = table[value];
-        node* head = chain;
+        node* head;
         
-        if(node_lookup(head,buf[0],buf[1],buf[2],buf[3])!=NULL){
+        if(node_lookup(chain,buf[0],buf[1],buf[2],buf[3])!=NULL){
             fprintf(stderr,"load_table duplicate entry: %d-%d-%d %d\n",buf[0],buf[1],buf[2],buf[3]);
+        }
+      
+        else{
+          head = add_node(head,buf[0],buf[1],buf[2],buf[3],buf[4],buf[5]);
+          if(head == NULL){
+           //aafsa
+          }
         }
         
 
 
-        add_node(head,buf[0],buf[1],buf[2],buf[3],buf[4],buf[5]);
+        
 
     }
 
