@@ -11,41 +11,38 @@
 
     .global node_lookup               //make node_lookup global for linking to
     .type   node_lookup, %function    //define node_lookup to be a function
-    .equ 	FP_OFF, 60 	  // fp offset distance from sp 
+    .equ 	FP_OFF, 24 	  // fp offset distance from sp 
 node_lookup:	
 // function prologue
 
 push {r4-r8,fp,lr}
 add   fp, sp, FP_OFF
-
+    cmp r0,0
+    beq .Lfin
 ldr r4, [r0]  //year
 ldr r5, [r0,#4] //month
 ldr r6, [r0,#8] //day
 ldr r7, [r0,#12] //hour from struct 
 ldr r8, [fp,#4] //hour in variable
    
-    cmp r0,0
-    beq .Lfin
+    
 
 .Loop:  
         cmp r1,r4
-        bne .change
+        bne .Lchange
         cmp r2,r5
-        bne .change
+        bne .Lchange
         cmp r3,r6
-        bne .change
+        bne .Lchange
         cmp r8,r7
-        bne .change
-        
-        cmp r0,0
         beq .Lfin
 
-.change: 
+.Lchange: 
        ldr r0,[r0,#24]
-       ldr r4,[r0,#28]
-       ldr r5,[r0,#32]
-       ldr r6,[r0,#36]
-       ldr r7,[r0,#40]
+       ldr r4,[r0]
+       ldr r5,[r0,#4]
+       ldr r6,[r0,#8]
+       ldr r7,[r0,#12]
        b .Loop
 
 // function epilogue
