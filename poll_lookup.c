@@ -250,11 +250,11 @@ int load_table(node **table, unsigned long size, char *filename) {
 
         node *chain = table[value];
         node* head = chain;
-        /*
+        
         if(node_lookup(head,buf[0],buf[1],buf[2],buf[3])!=NULL){
             fprintf(stderr,"load_table duplicate entry: %d-%d-%d %d\n",buf[0],buf[1],buf[2],buf[3]);
         }
-        */
+        
 
 
         add_node(head,buf[0],buf[1],buf[2],buf[3],buf[4],buf[5]);
