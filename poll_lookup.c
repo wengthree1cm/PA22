@@ -295,16 +295,17 @@ void print_info(node **table, unsigned long size) {
 
   for(int i=0;i<(int)size;i++){
     unsigned long count=0;
-    node *chain=table[i];
-    node * head=chain;
+     node *temp = table[i];
+ //   node *chain=table[i];
+ //   node * head=chain;
 
-    if(head==NULL){
+    if(table[i]==NULL){
         empty++;
     }
     else{
-        while(head!=NULL){
+        while(temp!=NULL){
             count++;
-            head=head->next;
+            temp=temp->next;
         }
     }
     entries=entries+count;
